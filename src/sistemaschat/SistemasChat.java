@@ -35,13 +35,13 @@ public class SistemasChat {
         /*Chat chat = new Chat();
         chat.setVisible(true);
         Chat2 chat2 = new Chat2();
-        chat2.setVisible(true);
-        Server servidor = new Server();*/
+        chat2.setVisible(true);*/
+        Server servidor = new Server();
         /*Multilista ml = new Multilista();
         ml.leerArchivo();*/
         
-        /*Login login = new Login();
-        login.setVisible(true);*/
+        Login login = new Login();
+        login.setVisible(true);
         
       /* try {
     // create a reader
@@ -59,9 +59,9 @@ public class SistemasChat {
 } catch (IOException ex) {
     ex.printStackTrace();
 }*/
-        Cliente cli1 = new Cliente("Alberto", 12, "Al12", "corr@gmail.com");
-        Cliente cli2 = new Cliente("Gerardo", 32, "Ger32", "ger@gmail.com");
-        Cliente cli3 = new Cliente("Alberto", 98, "Mar24", "mari24@gmail.com");
+        /*Cliente cli1 = new Cliente("Alberto", 12, "Al12", "corr@gmail.com", "ALTA");
+        Cliente cli2 = new Cliente("Gerardo", 32, "Ger32", "ger@gmail.com", "BAJA");
+        Cliente cli3 = new Cliente("Alberto", 98, "Mar24", "mari24@gmail.com", "ALTA");
         
         ArbolesB arbol = new ArbolesB();
         NodoArbol root = new NodoArbol("a", cli1);
@@ -70,19 +70,17 @@ public class SistemasChat {
         arbol.inserta(num, root);
         arbol.inserta(num2, root);
         
-       List<Cliente> lista =  arbol.buscarEnArbolDatosPersonales(root, "Alberto", 0, "", "");
+       arbol.buscarEnArbolDatosPersonales(root, "", 0, "", "", "BAJA");
+       List<Cliente> listaCli = arbol.getListaClientes();
        
-        System.out.println("Nueva Lista" + lista.toString());
+        for (int i = 0; i < listaCli.size() ; i++) {
+            System.out.println( listaCli.get(i) );
+            
+        }*/
        
-        arbol.buscarEnArbolDatosPersonales(root, "Alberto", 0, "", "");
+      
         
-        
-        /*
-            public void addLibro(Libro libro){
-        listaLibros.add(libro);
-        System.out.println(listaLibros.toString());
-    }
-        */
+       
         
         
         
