@@ -74,7 +74,7 @@ public class SistemasChat {
        
         System.out.println("Nueva Lista" + lista.toString());
        
-        //arbol.buscarEnArbolDatosPersonales(root, "Alberto", 0, "", "");
+        arbol.buscarEnArbolDatosPersonales(root, "Alberto", 0, "", "");
         
         
         /*
