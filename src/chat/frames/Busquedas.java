@@ -5,17 +5,35 @@
  */
 package chat.frames;
 
+import chat.controlador.ControladorCliente;
+import chat.modelo.Cliente;
+import edd.ArbolesB;
+import edd.NodoArbol;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Christian
  */
 public class Busquedas extends javax.swing.JFrame {
+    public Cliente cliente;
+    public ControladorCliente controladorCli;
+    public List<Cliente> listaClientes;
 
     /**
      * Creates new form Busquedas
      */
-    public Busquedas() {
+    
+    
+
+    public Busquedas(List<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+        this.controladorCli = new ControladorCliente();
         initComponents();
+   
     }
 
     /**
@@ -27,21 +45,210 @@ public class Busquedas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        busqueda = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        tipoBusqueda = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        hola = new javax.swing.JLabel();
+        hola1 = new javax.swing.JLabel();
+        hola2 = new javax.swing.JLabel();
+        hola3 = new javax.swing.JLabel();
+        nombre = new javax.swing.JLabel();
+        edad = new javax.swing.JLabel();
+        correo = new javax.swing.JLabel();
+        usuario = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        busqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Buscar por:");
+
+        tipoBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoBusquedaActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Dato:");
+
+        hola.setText("Nombre:");
+
+        hola1.setText("Edad:");
+
+        hola2.setText("E-mail:");
+
+        hola3.setText("Usuario:");
+
+        jButton2.setText("Transferir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(hola))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(hola1)
+                            .addComponent(hola2)
+                            .addComponent(hola3))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(edad)
+                    .addComponent(nombre)
+                    .addComponent(jButton1)
+                    .addComponent(busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(correo)
+                    .addComponent(usuario))
+                .addContainerGap(414, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(tipoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hola)
+                    .addComponent(nombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hola1)
+                    .addComponent(edad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hola2)
+                    .addComponent(correo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hola3)
+                    .addComponent(usuario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void busquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_busquedaActionPerformed
+
+    private void tipoBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoBusquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoBusquedaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //System.out.println( this.listaClientes);
+        
+        Cliente cli1 = new Cliente("Alberto", 12, "Al12", "corr@gmail.com", "ALTA");
+        Cliente cli2 = new Cliente("Gerardo", 32, "Ger32", "ger@gmail.com", "BAJA");
+        Cliente cli3 = this.listaClientes.get(1);
+        cli3.setEstado("ALTA");
+        
+        ArbolesB arbol = new ArbolesB();
+        NodoArbol root = new NodoArbol("a", cli1);
+        NodoArbol num = new NodoArbol("ab", cli2);
+        NodoArbol num2 = new NodoArbol("abc", cli3);
+        arbol.inserta(num, root);
+        arbol.inserta(num2, root);
+        
+       /*String a = busqueda.getText();
+       System.out.println(a);
+        
+       arbol.buscarEnArbolDatosPersonales(root, "", 0, "", "", String.valueOf(busqueda.getText()));
+       List<Cliente> listaCli = arbol.getListaClientes();
+       
+        for (int i = 0; i < listaCli.size() ; i++) {
+            System.out.println( listaCli.get(i) );
+            
+        }*/
+    
+        
+        if (tipoBusqueda.getText().equals("nombre")) {
+            arbol.buscarEnArbolDatosPersonales(root, busqueda.getText() , 0, "", "", "");
+            List<Cliente> listaClientes = arbol.getListaClientes();
+            //nombre  = new JLabel(listaClientes.get(1).getNombre());
+            nombre.setText(listaClientes.get(0).getNombre());
+            edad.setText(String.valueOf(listaClientes.get(0).getEdad()));
+            correo.setText( listaClientes.get(0).getCorreo());
+            usuario.setText( listaClientes.get(0).getUsuario());
+            System.out.println(listaClientes);
+            
+        }
+        if (tipoBusqueda.getText().equals("edad")) {
+            int edad1 = Integer.parseInt(busqueda.getText());
+            arbol.buscarEnArbolDatosPersonales(root, "", edad1, "", "", "");
+            List<Cliente>  listaClientes = arbol.getListaClientes();
+            nombre.setText(listaClientes.get(0).getNombre());
+            edad.setText(String.valueOf(listaClientes.get(0).getEdad()));
+            correo.setText( listaClientes.get(0).getCorreo());
+            usuario.setText( listaClientes.get(0).getUsuario());
+            
+        }
+        if (tipoBusqueda.getText().equals("usuario")) {
+            arbol.buscarEnArbolDatosPersonales(root, "", 0, busqueda.getText(), "", "");
+            List<Cliente>  listaClientes = arbol.getListaClientes();
+            nombre.setText(listaClientes.get(0).getNombre());
+            edad.setText(String.valueOf(listaClientes.get(0).getEdad()));
+            correo.setText( listaClientes.get(0).getCorreo());
+            usuario.setText( listaClientes.get(0).getUsuario());
+            
+        }
+        if (tipoBusqueda.getText().equals("mail")) {
+            arbol.buscarEnArbolDatosPersonales(root, "", 0, "", busqueda.getText(), "");
+            List<Cliente>  listaClientes = arbol.getListaClientes();
+            nombre.setText(listaClientes.get(0).getNombre());
+            edad.setText(String.valueOf(listaClientes.get(0).getEdad()));
+            correo.setText( listaClientes.get(0).getCorreo());
+            usuario.setText( listaClientes.get(0).getUsuario());
+            
+        }
+        if (tipoBusqueda.getText().equals("estado") ) {
+            arbol.buscarEnArbolDatosPersonales(root, "", 0, "", "", busqueda.getText());
+             List<Cliente>  listaClientes = arbol.getListaClientes();
+            nombre.setText(listaClientes.get(0).getNombre());
+            edad.setText(String.valueOf(listaClientes.get(0).getEdad()));
+            correo.setText( listaClientes.get(0).getCorreo());
+            usuario.setText( listaClientes.get(0).getUsuario());
+            
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,11 +280,25 @@ public class Busquedas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Busquedas().setVisible(true);
+                new Busquedas(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField busqueda;
+    private javax.swing.JLabel correo;
+    private javax.swing.JLabel edad;
+    private javax.swing.JLabel hola;
+    private javax.swing.JLabel hola1;
+    private javax.swing.JLabel hola2;
+    private javax.swing.JLabel hola3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel nombre;
+    private javax.swing.JTextField tipoBusqueda;
+    private javax.swing.JLabel usuario;
     // End of variables declaration//GEN-END:variables
 }
